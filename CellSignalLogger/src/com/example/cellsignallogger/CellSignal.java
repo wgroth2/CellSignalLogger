@@ -22,19 +22,19 @@ public class CellSignal {
 	public CellSignal(Context ac) {
 		super();
 		appContext = ac;
-		TelephonyManager  tm=(TelephonyManager) ac.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager  tm=(TelephonyManager) appContext.getSystemService(Context.TELEPHONY_SERVICE);
 		 int phoneType=tm.getPhoneType();
 
          switch (phoneType) 
          {
                  case (TelephonyManager.PHONE_TYPE_CDMA):
-                            // your code
+                            phoneType = TelephonyManager.PHONE_TYPE_CDMA;
                                 break;
                  case (TelephonyManager.PHONE_TYPE_GSM):
-                            // your code                 
+                            phoneType = TelephonyManager.PHONE_TYPE_GSM;                
                                 break;
                  case (TelephonyManager.PHONE_TYPE_NONE):
-                	 // get tag here.
+                	    phoneType = TelephonyManager.PHONE_TYPE_NONE;
                            Log.d(tag," is not a phone");
                                  break;
           }
